@@ -7,7 +7,7 @@ export function maybe<I, O>(defaultValue: () => O, f: (v: I) => O, v: ?I): O {
   return v === undefined || v === null ? defaultValue() : f(v)
 }
 
-export function fromJust<A>(a: ? A, error : string): A {
+export function fromJust<A>(a: ?A, error: string): A {
   if (a === undefined || a === null) {
     throw new Error(error)
   } else {
@@ -39,7 +39,7 @@ export const mthen = <I, O>(v: ?I, f: (v: I) => ?O): ?O =>
   v === undefined ? undefined : v === null ? null : f(v)
 
 // mthen for effects (and not transformations, hence nothing is returned)
-export function mEffect<V>(v: ? V, effect : (v: V) => void) {
+export function mEffect<V>(v: ?V, effect: (v: V) => void) {
   if (v !== null && v !== undefined) {
     effect(v)
   }
