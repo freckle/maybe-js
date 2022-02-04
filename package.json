@@ -1,0 +1,27 @@
+{
+  "name": "@freckle/maybe",
+  "version": "1.0.0",
+  "description": "Operations for maybe types",
+  "main": "./lib/index.js",
+  "repository": "https://github.com/freckle/maybe-js.git",
+  "author": "Freckle",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -o lib/index.js --ignore \"src/**/*.test.js\"",
+    "test": "jest",
+    "flow": "flow",
+    "format": "prettier --write 'src/**/*.js'"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-flow": "^7.16.7",
+    "flow-bin": "^0.171.0",
+    "jest": "^27.4.7",
+    "prettier": "^2.5.1"
+  }
+}
