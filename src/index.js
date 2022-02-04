@@ -1,13 +1,13 @@
 /* @flow */
 
 export {
-  maybe,
+  asHTMLAttributeValue,
+  catMaybes,
   fromJust,
   fromMaybe,
-  catMaybes,
   mapMaybes,
-  mmap,
-  mthen,
+  maybe,
   mEffect,
-  asHTMLAttributeValue
+  mmap,
+  mthen
 } from './maybe'

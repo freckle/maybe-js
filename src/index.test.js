@@ -1,6 +1,6 @@
 /* @flow */
 
-import {mapMaybes, mEffect, catMaybes, mmap, mthen} from '.'
+import {catMaybes, mapMaybes, mEffect, mmap, mthen} from '.'
 
 describe('@freckle/maybe', () => {
   describe('mapMaybes', () => {
@@ -80,27 +80,27 @@ describe('@freckle/maybe', () => {
     test('should call fn when value is not null/undefined', () => {
       const fn = jest.fn()
 
-      const returned = mEffect('a', fn)
-      mEffect(0, fn)
-      mEffect([], fn)
-      mEffect({}, fn)
+  const returned = mEffect('a', fn)
+  mEffect(0, fn)
+  mEffect([], fn)
+  mEffect({}, fn)
 
-      expect(fn).toHaveBeenCalledTimes(4)
-      expect(fn).toHaveBeenNthCalledWith(1, 'a')
-      expect(fn).toHaveBeenNthCalledWith(2, 0)
-      expect(fn).toHaveBeenNthCalledWith(3, [])
-      expect(fn).toHaveBeenNthCalledWith(4, {})
+  expect(fn).toHaveBeenCalledTimes(4)
+  expect(fn).toHaveBeenNthCalledWith(1, 'a')
+  expect(fn).toHaveBeenNthCalledWith(2, 0)
+  expect(fn).toHaveBeenNthCalledWith(3, [])
+  expect(fn).toHaveBeenNthCalledWith(4, {})
       expect(returned).toEqual(undefined)
     })
 
     test('should NOT call fn when value is null/undefined', () => {
       const fn = jest.fn()
 
-      const returned1 = mEffect(null, fn)
-      const returned2 = mEffect(undefined, fn)
+    const returned1 = mEffect(null, fn)
+    const returned2 = mEffect(undefined, fn)
 
-      expect(fn).toHaveBeenCalledTimes(0)
-      expect(returned1).toEqual(undefined)
+    expect(fn).toHaveBeenCalledTimes(0)
+    expect(returned1).toEqual(undefined)
       expect(returned2).toEqual(undefined)
     })
   })

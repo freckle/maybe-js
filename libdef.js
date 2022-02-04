@@ -2,7 +2,7 @@
 
 declare module '@freckle/maybe' {
   declare export function maybe<I, O>(defaultValue: () => O, f: (v: I) => O, v: ?I): O
-  declare export function fromJust<A>(a: ?A, error: string): A
+  declare export function fromJust<A>(a: ? A, error : string): A
   declare export function fromMaybe<T>(defaultValue: () => T, t: ?T): T
   declare export function catMaybes<T>(array: Array<?T>): Array<T>
   declare export function mapMaybes<A, B>(
