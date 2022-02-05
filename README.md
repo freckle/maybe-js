@@ -88,17 +88,17 @@ type Props = {
 const MyComponent = (props: Props): React.Node => {
   // This prop may be string | undefined | null
   const possibleInput = props.myInput
-  
-  React.useEffect(() => {  
+
+  React.useEffect(() => {
     mEffect(possibleInput, input =>
       // Call a side effect that does not handle a null value:
       sideEffect(input)
     )
   }, [possibleInput])
-  
+
   // Rendering an element with an attribute from a maybe value:
   const attrObj = {'my-attribute': asHTMLAttributeValue(possibleInput)}
-  
+
   // If input is not a string, <div> is rendered;
   // otherwise: <div my-attribute="..." />
   return <div {...attrObj} />
