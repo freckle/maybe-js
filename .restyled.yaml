@@ -1,12 +1,12 @@
 restylers:
   - clang-format:
-	  enabled: false
+      enabled: false
   - jq:
-	  enabled: false # prefer prettier-json
+      enabled: false # prefer prettier-json
   - prettier:
-	  include:
-		- "src/**/*.js"
+      include:
+        - "src/**/*.js"
   - whitespace:
-	  include:
-		- "**/*"
-		- "!dist/index.js"
+      include:
+        - "**/*"
+        - "!dist/index.js"
