@@ -7,7 +7,7 @@
   "author": "Freckle",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -o lib/index.js --ignore \"src/**/*.test.js\"",
+    "build": "babel src -d lib --ignore \"src/**/*.test.js\"",
     "test": "jest",
     "flow": "flow",
     "format": "prettier --write 'src/**/*.js'"
