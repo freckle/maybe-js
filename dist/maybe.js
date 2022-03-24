@@ -30,11 +30,13 @@ function mapMaybes(array, callback) {
 }
 exports.mapMaybes = mapMaybes;
 // fmap for `null | undefined`
-const mmap = (f, v) => v === undefined ? undefined : v === null ? null : f(v); // bind for `null | undefined`
+const mmap = (f, v) => v === undefined ? undefined : v === null ? null : f(v);
 exports.mmap = mmap;
+// bind for `null | undefined`
 // Note that `bind` and `map` have the same body in JavaScript
-const mthen = (v, f) => (v === undefined ? undefined : v === null ? null : f(v)); // mthen for effects (and not transformations, hence nothing is returned)
+const mthen = (v, f) => (v === undefined ? undefined : v === null ? null : f(v));
 exports.mthen = mthen;
+// mthen for effects (and not transformations, hence nothing is returned)
 function mEffect(v, effect) {
     if (v !== null && v !== undefined) {
         effect(v);
