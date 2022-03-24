@@ -1,5 +1,3 @@
-/* @flow */
-
 export {
   maybe,
   fromJust,
