@@ -5,8 +5,9 @@ restylers:
       enabled: false # prefer prettier-json
   - prettier:
       include:
-        - "src/**/*.js"
+        - 'src/**/*.ts'
   - whitespace:
       include:
-        - "**/*"
-        - "!dist/index.js"
+        - '**/*'
+        - '!dist/*'
+        - '!flow/*'

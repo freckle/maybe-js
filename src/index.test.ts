@@ -1,5 +1,3 @@
-/* @flow */
-
 import {mapMaybes, mEffect, catMaybes, mmap, mthen} from '.'
 
 describe('@freckle/maybe', () => {
@@ -34,11 +32,13 @@ describe('@freckle/maybe', () => {
 
   describe('mmap', () => {
     test('returns undefined given undefined', () => {
+      //@ts-expect-error: ts is too smart and knows that v is undefined
       const result = mmap(v => v + 1, undefined)
       expect(result).toEqual(undefined)
     })
 
     test('returns null given null', () => {
+      //@ts-expect-error: ts is too smart and knows that v is null
       const result = mmap(v => v + 1, null)
       expect(result).toEqual(null)
     })
@@ -51,11 +51,13 @@ describe('@freckle/maybe', () => {
 
   describe('mthen', () => {
     test('returns undefined given undefined', () => {
+      //@ts-expect-error: ts is too smart and knows that v is undefined
       const result = mthen(undefined, v => v + 1)
       expect(result).toEqual(undefined)
     })
 
     test('returns null given null', () => {
+      //@ts-expect-error: ts is too smart and knows that v is null
       const result = mthen(null, v => v + 1)
       expect(result).toEqual(null)
     })
