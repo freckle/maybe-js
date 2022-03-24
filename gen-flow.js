@@ -4,7 +4,7 @@ const fs = require('fs')
 const flowdef = beautify(compiler.compileDefinitionFile('./dist/maybe.d.ts'))
 fs.writeFile(
   './flow/maybe.js',
-  `declare module '@freckle/maybe' \{ 
+  `declare module '@freckle/maybe' \{
 ${flowdef}\}
 `,
   e => {
