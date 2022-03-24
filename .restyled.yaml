@@ -9,4 +9,5 @@ restylers:
   - whitespace:
       include:
         - '**/*'
-        - '!dist/index.js'
+        - '!dist/*'
+        - '!flow/*'
