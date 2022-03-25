@@ -62,3 +62,5 @@ export function asHTMLAttributeValue<T>(value?: T | null): T | void {
   }
   return value
 }
+
+export const foo = (): string => 'hi'
