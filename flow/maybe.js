@@ -1,4 +1,4 @@
-declare module '@freckle/maybe' { 
+declare module '@freckle/maybe' {
 declare export function maybe<I, O>(
   defaultValue: () => O,
   f: (v: I) => O,
