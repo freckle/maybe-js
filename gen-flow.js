@@ -11,7 +11,7 @@ glob('./dist/**/*.d.ts', {}, (err, files) => {
     const name = /(.*).d/.exec(p.name)[1]
     fs.writeFile(
       `${p.dir}/${name}.js.flow`,
-      `//@flow 
+      `//@flow
 ${flowdef}`,
       e => {
         if (e) console.error(e)
