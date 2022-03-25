@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsc -d && node gen-flow.js",
     "test": "jest",
-    "format": "prettier --write 'src/**/*.ts'"
+    "format": "prettier --write 'src/**/*.ts'",
+    "check-git-clean": "./check-git-clean.sh"
   },
   "dependencies": {
     "lodash": "^4.17.21"
