@@ -1,16 +1,21 @@
 const {beautify, compiler} = require('flowgen')
 const fs = require('fs')
+const glob = require('glob')
+const path = require('path')
 
-const flowdef = beautify(compiler.compileDefinitionFile('./dist/maybe.d.ts'))
-fs.writeFile(
-  './flow/maybe.js',
-  `declare module '@freckle/maybe' \{
-${flowdef}\}
-`,
-  e => {
-    if (e) console.error(e)
-    else {
-      console.log('Flow types written')
-    }
-  }
-)
+glob('./dist/**/*.d.ts', {}, (err, files) => {
+  if (err) console.error(err)
+  files.forEach(f => {
+    const flowdef = beautify(compiler.compileDefinitionFile(f))
+    const p = path.parse(f)
+    const name = /(.*).d/.exec(p.name)[1]
+    fs.writeFile(
+      `${p.dir}/${name}.js.flow`,
+      `//@flow 
+${flowdef}`,
+      e => {
+        if (e) console.error(e)
+      }
+    )
+  })
+})
