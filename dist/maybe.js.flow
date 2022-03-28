@@ -1,4 +1,4 @@
-declare module '@freckle/maybe' {
+//@flow
 declare export function maybe<I, O>(
   defaultValue: () => O,
   f: (v: I) => O,
@@ -28,4 +28,3 @@ declare export function mEffect<V>(
   effect: (v: V) => void
 ): void;
 declare export function asHTMLAttributeValue<T>(value?: T | null): T | void;
-}
