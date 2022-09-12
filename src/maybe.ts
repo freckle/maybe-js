@@ -56,7 +56,7 @@ export function mEffect<V>(v: V | undefined | null, effect: (v: V) => void) {
  * <button {...disabledObj} />
  */
 
-export function asHTMLAttributeValue<T>(value?: T | null): T | void {
+export function asHTMLAttributeValue<T>(value?: T | null): T | undefined {
   if (value === null || value === undefined) {
     return undefined
   }
