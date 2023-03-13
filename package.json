@@ -1,6 +1,6 @@
 {
   "name": "@freckle/maybe",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Operations for maybe types",
   "main": "./dist/index.js",
   "repository": "https://github.com/freckle/maybe-js.git",
