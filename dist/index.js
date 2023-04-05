@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.asHTMLAttributeValue = exports.mEffect = exports.mthen = exports.mmap = exports.mapMaybes = exports.catMaybes = exports.fromMaybe = exports.fromJust = exports.maybe = void 0;
+exports.asHTMLAttributeValue = exports.mObj = exports.mEffect = exports.mthen = exports.mmap = exports.mapMaybes = exports.catMaybes = exports.fromMaybe = exports.fromJust = exports.maybe = void 0;
 var maybe_1 = require("./maybe");
 Object.defineProperty(exports, "maybe", { enumerable: true, get: function () { return maybe_1.maybe; } });
 Object.defineProperty(exports, "fromJust", { enumerable: true, get: function () { return maybe_1.fromJust; } });
@@ -10,4 +10,5 @@ Object.defineProperty(exports, "mapMaybes", { enumerable: true, get: function ()
 Object.defineProperty(exports, "mmap", { enumerable: true, get: function () { return maybe_1.mmap; } });
 Object.defineProperty(exports, "mthen", { enumerable: true, get: function () { return maybe_1.mthen; } });
 Object.defineProperty(exports, "mEffect", { enumerable: true, get: function () { return maybe_1.mEffect; } });
+Object.defineProperty(exports, "mObj", { enumerable: true, get: function () { return maybe_1.mObj; } });
 Object.defineProperty(exports, "asHTMLAttributeValue", { enumerable: true, get: function () { return maybe_1.asHTMLAttributeValue; } });

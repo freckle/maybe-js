@@ -6,4 +6,5 @@ export declare function mapMaybes<A, B>(array: Array<A>, callback: (value: A, in
 export declare const mmap: <I extends unknown, O>(f: (v: I) => O, v?: I | null | undefined) => O | null | undefined;
 export declare const mthen: <I extends unknown, O>(v: I | null | undefined, f: (v: I) => O | null | undefined) => O | null | undefined;
 export declare function mEffect<V>(v: V | undefined | null, effect: (v: V) => void): void;
+export declare const mObj: <P extends string, V>(p: P, v?: V | null | undefined) => Partial<Record<P, V>>;
 export declare function asHTMLAttributeValue<T>(value?: T | null): T | undefined;
