@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.asHTMLAttributeValue = exports.mEffect = exports.mthen = exports.mmap = exports.mapMaybes = exports.catMaybes = exports.fromMaybe = exports.fromJust = exports.maybe = void 0;
+exports.asHTMLAttributeValue = exports.mObj = exports.mEffect = exports.mthen = exports.mmap = exports.mapMaybes = exports.catMaybes = exports.fromMaybe = exports.fromJust = exports.maybe = void 0;
 const map_1 = __importDefault(require("lodash/map"));
 const flatMap_1 = __importDefault(require("lodash/flatMap"));
 function maybe(defaultValue, f, v) {
@@ -43,6 +43,9 @@ function mEffect(v, effect) {
     }
 }
 exports.mEffect = mEffect;
+// create an object with the given property/value, when the value is present
+const mObj = (p, v) => v === null || v === undefined ? {} : { [p]: v };
+exports.mObj = mObj;
 /* asHTMLAttributeValue is used as a way to make an HTML attribute value
  * exist in the DOM or not. React does not add in the DOM HTML attributes
  * with an "undefined" value

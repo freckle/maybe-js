@@ -27,4 +27,8 @@ declare export function mEffect<V>(
   v: V | void | null,
   effect: (v: V) => void
 ): void;
+declare export var mObj: <P: string, V>(
+  p: P,
+  v?: V | null | void
+) => $Rest<{ [key: P]: V, ... }, { ... }>;
 declare export function asHTMLAttributeValue<T>(value?: T | null): T | void;
