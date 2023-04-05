@@ -1,4 +1,4 @@
-import {mapMaybes, mEffect, catMaybes, mmap, mthen} from '.'
+import {mapMaybes, mEffect, catMaybes, mmap, mthen, mObj} from '.'
 
 describe('@freckle/maybe', () => {
   describe('mapMaybes', () => {
@@ -104,6 +104,28 @@ describe('@freckle/maybe', () => {
       expect(fn).toHaveBeenCalledTimes(0)
       expect(returned1).toEqual(undefined)
       expect(returned2).toEqual(undefined)
+    })
+  })
+
+  describe('mObj', () => {
+    test('refines to a more specific type', () => {
+      const _ex1: { foo?: number } = mObj('foo', 42)
+      const mkNullNumber = (): null | number => null
+      const _ex2: { bar?: number } = mObj('bar', mkNullNumber())
+      const _ex3: { spam?: number } = mObj('spam', undefined)
+    })
+
+    test('returns an object with the given prop/value pair when the value is present', () => {
+      expect(mObj('eggs', 42)).toEqual({ eggs: 42 })
+      expect(mObj('fish', ['hi'])).toEqual({ fish: ['hi'] })
+    })
+
+    test('returns an empty object given null', () => {
+      expect(mObj('404', null)).toEqual({})
+    })
+
+    test('returns an empty object given undefined', () => {
+      expect(mObj('nope', undefined)).toEqual({})
     })
   })
 })

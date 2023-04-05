@@ -7,5 +7,6 @@ export {
   mmap,
   mthen,
   mEffect,
+  mObj,
   asHTMLAttributeValue
 } from './maybe'
