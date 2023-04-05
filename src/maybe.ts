@@ -46,10 +46,8 @@ export function mEffect<V>(v: V | undefined | null, effect: (v: V) => void) {
 }
 
 // create an object with the given property/value, when the value is present
-export const mObj =  <P extends string, V>(p: P, v?: V | null): Partial<Record<P, V>> =>
-  v === null || v === undefined
-  ? {}
-  : {[p]: v} as Record<P, V>
+export const mObj = <P extends string, V>(p: P, v?: V | null): Partial<Record<P, V>> =>
+  v === null || v === undefined ? {} : ({[p]: v} as Record<P, V>)
 
 /* asHTMLAttributeValue is used as a way to make an HTML attribute value
  * exist in the DOM or not. React does not add in the DOM HTML attributes

@@ -109,15 +109,15 @@ describe('@freckle/maybe', () => {
 
   describe('mObj', () => {
     test('refines to a more specific type', () => {
-      const _ex1: { foo?: number } = mObj('foo', 42)
+      const _ex1: {foo?: number} = mObj('foo', 42)
       const mkNullNumber = (): null | number => null
-      const _ex2: { bar?: number } = mObj('bar', mkNullNumber())
-      const _ex3: { spam?: number } = mObj('spam', undefined)
+      const _ex2: {bar?: number} = mObj('bar', mkNullNumber())
+      const _ex3: {spam?: number} = mObj('spam', undefined)
     })
 
     test('returns an object with the given prop/value pair when the value is present', () => {
-      expect(mObj('eggs', 42)).toEqual({ eggs: 42 })
-      expect(mObj('fish', ['hi'])).toEqual({ fish: ['hi'] })
+      expect(mObj('eggs', 42)).toEqual({eggs: 42})
+      expect(mObj('fish', ['hi'])).toEqual({fish: ['hi']})
     })
 
     test('returns an empty object given null', () => {
