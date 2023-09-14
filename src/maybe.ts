@@ -49,6 +49,10 @@ export function mEffect<V>(v: V | undefined | null, effect: (v: V) => void) {
 export const mObj = <P extends string, V>(p: P, v?: V | null): Partial<Record<P, V>> =>
   v === null || v === undefined ? {} : ({[p]: v} as Record<P, V>)
 
+// apply a possibly-missing endomorphism
+export const mEndo = <A>(f: (((a: A) => A) | undefined | null), x: A): A =>
+  f === null || f === undefined ? x : f(x)
+
 /* asHTMLAttributeValue is used as a way to make an HTML attribute value
  * exist in the DOM or not. React does not add in the DOM HTML attributes
  * with an "undefined" value
