@@ -50,7 +50,7 @@ export const mObj = <P extends string, V>(p: P, v?: V | null): Partial<Record<P,
   v === null || v === undefined ? {} : ({[p]: v} as Record<P, V>)
 
 // apply a possibly-missing endomorphism
-export const mEndo = <A>(f: (((a: A) => A) | undefined | null), x: A): A =>
+export const mEndo = <A>(f: ((a: A) => A) | undefined | null, x: A): A =>
   f === null || f === undefined ? x : f(x)
 
 /* asHTMLAttributeValue is used as a way to make an HTML attribute value
