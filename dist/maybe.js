@@ -3,13 +3,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.asHTMLAttributeValue = exports.mObj = exports.mEffect = exports.mthen = exports.mmap = exports.mapMaybes = exports.catMaybes = exports.fromMaybe = exports.fromJust = exports.maybe = void 0;
+exports.mObj = exports.mthen = exports.mmap = exports.catMaybes = void 0;
+exports.maybe = maybe;
+exports.fromJust = fromJust;
+exports.fromMaybe = fromMaybe;
+exports.mapMaybes = mapMaybes;
+exports.mEffect = mEffect;
+exports.asHTMLAttributeValue = asHTMLAttributeValue;
 const map_1 = __importDefault(require("lodash/map"));
 const flatMap_1 = __importDefault(require("lodash/flatMap"));
 function maybe(defaultValue, f, v) {
     return v === undefined || v === null ? defaultValue() : f(v);
 }
-exports.maybe = maybe;
 function fromJust(a, error) {
     if (a === undefined || a === null) {
         throw new Error(error);
@@ -18,17 +23,14 @@ function fromJust(a, error) {
         return a;
     }
 }
-exports.fromJust = fromJust;
 function fromMaybe(defaultValue, t) {
     return t === null || t === undefined ? defaultValue() : t;
 }
-exports.fromMaybe = fromMaybe;
 const catMaybes = (array) => (0, flatMap_1.default)(array, x => (x === null || x === undefined ? [] : [x]));
 exports.catMaybes = catMaybes;
 function mapMaybes(array, callback) {
     return (0, exports.catMaybes)((0, map_1.default)(array, callback));
 }
-exports.mapMaybes = mapMaybes;
 // fmap for `null | undefined`
 const mmap = (f, v) => v === undefined ? undefined : v === null ? null : f(v);
 exports.mmap = mmap;
@@ -42,7 +44,6 @@ function mEffect(v, effect) {
         effect(v);
     }
 }
-exports.mEffect = mEffect;
 // create an object with the given property/value, when the value is present
 const mObj = (p, v) => v === null || v === undefined ? {} : { [p]: v };
 exports.mObj = mObj;
@@ -62,4 +63,3 @@ function asHTMLAttributeValue(value) {
     }
     return value;
 }
-exports.asHTMLAttributeValue = asHTMLAttributeValue;

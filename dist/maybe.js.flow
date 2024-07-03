@@ -6,7 +6,9 @@ declare export function maybe<I, O>(
 ): O;
 declare export function fromJust<A>(a: A | void | null, error: string): A;
 declare export function fromMaybe<T>(defaultValue: () => T, t?: T | null): T;
-declare export var catMaybes: <T: mixed>(array: (T | null | void)[]) => T[];
+declare export var catMaybes: <T: mixed>(
+  array: Array<T | void | null>
+) => Array<T>;
 declare export function mapMaybes<A, B>(
   array: Array<A>,
   callback: (
@@ -17,18 +19,18 @@ declare export function mapMaybes<A, B>(
 ): Array<B>;
 declare export var mmap: <I: mixed, O>(
   f: (v: I) => O,
-  v?: I | null | void
-) => O | null | void;
+  v?: I | null
+) => O | void | null;
 declare export var mthen: <I: mixed, O>(
-  v: I | null | void,
-  f: (v: I) => O | null | void
-) => O | null | void;
+  v: I | void | null,
+  f: (v: I) => O | void | null
+) => O | void | null;
 declare export function mEffect<V>(
   v: V | void | null,
   effect: (v: V) => void
 ): void;
 declare export var mObj: <P: string, V>(
   p: P,
-  v?: V | null | void
+  v?: V | null
 ) => $Rest<{ [key: P]: V, ... }, { ... }>;
 declare export function asHTMLAttributeValue<T>(value?: T | null): T | void;
