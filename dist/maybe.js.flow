@@ -6,7 +6,7 @@ declare export function maybe<I, O>(
 ): O;
 declare export function fromJust<A>(a: A | void | null, error: string): A;
 declare export function fromMaybe<T>(defaultValue: () => T, t?: T | null): T;
-declare export var catMaybes: <T: mixed>(
+declare export var catMaybes: <T: any>(
   array: Array<T | void | null>
 ) => Array<T>;
 declare export function mapMaybes<A, B>(
@@ -17,11 +17,11 @@ declare export function mapMaybes<A, B>(
     array: $ReadOnlyArray<A>
   ) => B | void | null
 ): Array<B>;
-declare export var mmap: <I: mixed, O>(
+declare export var mmap: <I: any, O>(
   f: (v: I) => O,
   v?: I | null
 ) => O | void | null;
-declare export var mthen: <I: mixed, O>(
+declare export var mthen: <I: any, O>(
   v: I | void | null,
   f: (v: I) => O | void | null
 ) => O | void | null;
