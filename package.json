@@ -16,7 +16,7 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.6",
     "flowgen": "^1.21.0",
     "jest": "^29.7.0",
