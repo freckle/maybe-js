@@ -50,7 +50,6 @@ exports.mObj = mObj;
 /* asHTMLAttributeValue is used as a way to make an HTML attribute value
  * exist in the DOM or not. React does not add in the DOM HTML attributes
  * with an "undefined" value
- * Flow does not accept the empty object for spreading.
  * eg.
  *
  * const disabled = null

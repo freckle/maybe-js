@@ -11,8 +11,6 @@ This package seeks to recreate idioms common in strongly typed functional progra
 Operations are used to refine an input from being possibly `null` or `undefined`:
 
 ```js
-/* @flow */
-
 import {fromJust, fromMaybe, maybe} from '@freckle/maybe'
 
 // Return input from a user, if any:
@@ -78,7 +76,6 @@ console.log(mapped) // => ['  foo', '  bar']
 Two operations are tailored to use with React:
 
 ```js
-/* @flow */
 import {mEffect, asHTMLAttributeValue} from '@freckle/maybe'
 
 type Props = {

@@ -7,7 +7,7 @@
   "author": "Freckle",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -d && node gen-flow.js",
+    "build": "tsc -d",
     "test": "jest",
     "format": "prettier --write 'src/**/*.ts'",
     "check-git-clean": "./check-git-clean.sh"
@@ -18,7 +18,6 @@
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.20",
-    "flowgen": "^1.21.0",
     "jest": "^29.7.0",
     "prettier": "^3.6.2",
     "ts-jest": "^29.4.5",
