@@ -13,7 +13,7 @@
     "check-git-clean": "./check-git-clean.sh"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
