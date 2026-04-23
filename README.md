@@ -102,5 +102,8 @@ const MyComponent = (props: Props): React.Node => {
 }
 ```
 
+## Release
+
+See [RELEASE.md](./RELEASE.md) for more details.
 
 [Data.Maybe]: https://hackage.haskell.org/package/base-4.16.0.0/docs/Data-Maybe.html

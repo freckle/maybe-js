@@ -1,0 +1,24 @@
+plugins:
+  - - '@semantic-release/commit-analyzer'
+    - preset: 'conventionalcommits'
+  - - '@semantic-release/release-notes-generator'
+    - preset: 'conventionalcommits'
+  - - '@semantic-release/github'
+    - successCommentCondition: false
+
+  # Update dist, in case Dependabot PRs merged without doing so
+  - - '@semantic-release/exec'
+    - prepareCmd: 'yarn install && yarn run build'
+
+  - - '@semantic-release/git'
+    - assets:
+        - 'dist/**'
+        - 'package.json' # commit updated version back to source
+      message: 'chore(release): update dist and package.json'
+
+  - '@semantic-release/npm'
+
+branches:
+  - main
+  - name: rc/*
+    prerelease: '${name.replace(/^rc\//, "rc-")}'
