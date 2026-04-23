@@ -6,8 +6,8 @@ with [conventional commits](https://www.conventionalcommits.org/) to trigger rel
 To trigger a release in this project, merge a commit to `main` prefixed with:
 
 1. `fix:` to trigger a patch release,
-1. `feat:` to trigger minor, or
-1. Use `<type>!:` or the `BREAKING CHANGES: <change>` footer to trigger major
+2. `feat:` to trigger minor, or
+3. Use `<type>!:` or the `BREAKING CHANGES: <change>` footer to trigger major
 
 Pre-releases can be made by pushing to an `rc/*` branch.
 
