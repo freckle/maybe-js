@@ -10,13 +10,13 @@ plugins:
   - - '@semantic-release/exec'
     - prepareCmd: 'yarn install && yarn run build'
 
+  - '@semantic-release/npm'
+
   - - '@semantic-release/git'
     - assets:
         - 'dist/**'
         - 'package.json' # commit updated version back to source
       message: 'chore(release): update dist and package.json'
-
-  - '@semantic-release/npm'
 
 branches:
   - main
