@@ -1,7 +1,4 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mObj = exports.mthen = exports.mmap = exports.catMaybes = void 0;
 exports.maybe = maybe;
@@ -10,8 +7,6 @@ exports.fromMaybe = fromMaybe;
 exports.mapMaybes = mapMaybes;
 exports.mEffect = mEffect;
 exports.asHTMLAttributeValue = asHTMLAttributeValue;
-const map_1 = __importDefault(require("lodash/map"));
-const flatMap_1 = __importDefault(require("lodash/flatMap"));
 function maybe(defaultValue, f, v) {
     return v === undefined || v === null ? defaultValue() : f(v);
 }
@@ -26,10 +21,10 @@ function fromJust(a, error) {
 function fromMaybe(defaultValue, t) {
     return t === null || t === undefined ? defaultValue() : t;
 }
-const catMaybes = (array) => (0, flatMap_1.default)(array, x => (x === null || x === undefined ? [] : [x]));
+const catMaybes = (array) => array.filter((x) => x !== null && x !== undefined);
 exports.catMaybes = catMaybes;
 function mapMaybes(array, callback) {
-    return (0, exports.catMaybes)((0, map_1.default)(array, callback));
+    return (0, exports.catMaybes)(array.map(callback));
 }
 // fmap for `null | undefined`
 const mmap = (f, v) => v === undefined ? undefined : v === null ? null : f(v);
