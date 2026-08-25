@@ -12,7 +12,6 @@
     "format": "prettier --write 'src/**/*.ts'",
     "check-git-clean": "./check-git-clean.sh"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.4.2",
