@@ -12,12 +12,6 @@ plugins:
 
   - '@semantic-release/npm'
 
-  - - '@semantic-release/git'
-    - assets:
-        - 'dist/**'
-        - 'package.json' # commit updated version back to source
-      message: 'chore(release): update dist and package.json'
-
 branches:
   - main
   - name: rc/*
