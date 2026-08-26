@@ -1,6 +1,3 @@
-import map from 'lodash/map'
-import flatMap from 'lodash/flatMap'
-
 export function maybe<I, O>(defaultValue: () => O, f: (v: I) => O, v?: I | null): O {
   return v === undefined || v === null ? defaultValue() : f(v)
 }
@@ -18,13 +15,13 @@ export function fromMaybe<T>(defaultValue: () => T, t?: T | null): T {
 }
 
 export const catMaybes = <T extends any>(array: Array<T | undefined | null>): Array<T> =>
-  flatMap(array, x => (x === null || x === undefined ? [] : [x]))
+  array.filter((x): x is T => x !== null && x !== undefined)
 
 export function mapMaybes<A, B>(
   array: Array<A>,
   callback: (value: A, index: number, array: ReadonlyArray<A>) => B | undefined | null
 ): Array<B> {
-  return catMaybes(map(array, callback))
+  return catMaybes(array.map(callback))
 }
 
 // fmap for `null | undefined`
