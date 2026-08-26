@@ -15,9 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: cycjimmy/semantic-release-action@v6.0.0
+        # conventional-changelog-conventionalcommits is held at 9.x: v10 requires
+        # conventional-changelog-writer@9, while semantic-release@25 still resolves
+        # writer@8 via @semantic-release/release-notes-generator@14. Unpinned, the
+        # release fails with `Missing helper: "..."`.
         with:
           extra_plugins: |
-            conventional-changelog-conventionalcommits
+            conventional-changelog-conventionalcommits@9
             @semantic-release/exec
         env:
           FORCE_COLOR: 1
