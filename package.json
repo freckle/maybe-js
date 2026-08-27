@@ -9,8 +9,7 @@
   "scripts": {
     "build": "tsc -d",
     "test": "jest",
-    "format": "prettier --write 'src/**/*.ts'",
-    "check-git-clean": "./check-git-clean.sh"
+    "format": "prettier --write 'src/**/*.ts'"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",

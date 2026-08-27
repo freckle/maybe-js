@@ -19,4 +19,6 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: yarn test
-      - run: yarn run check-git-clean
+      - uses: freckle/check-git-clean-action@v1
+        with:
+          hint: "Run yarn build to update your dist/"
