@@ -9,4 +9,4 @@ export {
   mEffect,
   mObj,
   asHTMLAttributeValue
-} from './maybe'
+} from './maybe.js'

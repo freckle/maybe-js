@@ -1,16 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.mObj = exports.mthen = exports.mmap = exports.catMaybes = void 0;
-exports.maybe = maybe;
-exports.fromJust = fromJust;
-exports.fromMaybe = fromMaybe;
-exports.mapMaybes = mapMaybes;
-exports.mEffect = mEffect;
-exports.asHTMLAttributeValue = asHTMLAttributeValue;
-function maybe(defaultValue, f, v) {
+export function maybe(defaultValue, f, v) {
     return v === undefined || v === null ? defaultValue() : f(v);
 }
-function fromJust(a, error) {
+export function fromJust(a, error) {
     if (a === undefined || a === null) {
         throw new Error(error);
     }
@@ -18,30 +9,26 @@ function fromJust(a, error) {
         return a;
     }
 }
-function fromMaybe(defaultValue, t) {
+export function fromMaybe(defaultValue, t) {
     return t === null || t === undefined ? defaultValue() : t;
 }
-const catMaybes = (array) => array.filter((x) => x !== null && x !== undefined);
-exports.catMaybes = catMaybes;
-function mapMaybes(array, callback) {
-    return (0, exports.catMaybes)(array.map(callback));
+export const catMaybes = (array) => array.filter((x) => x !== null && x !== undefined);
+export function mapMaybes(array, callback) {
+    return catMaybes(array.map(callback));
 }
 // fmap for `null | undefined`
-const mmap = (f, v) => v === undefined ? undefined : v === null ? null : f(v);
-exports.mmap = mmap;
+export const mmap = (f, v) => v === undefined ? undefined : v === null ? null : f(v);
 // bind for `null | undefined`
 // Note that `bind` and `map` have the same body in JavaScript
-const mthen = (v, f) => (v === undefined ? undefined : v === null ? null : f(v));
-exports.mthen = mthen;
+export const mthen = (v, f) => (v === undefined ? undefined : v === null ? null : f(v));
 // mthen for effects (and not transformations, hence nothing is returned)
-function mEffect(v, effect) {
+export function mEffect(v, effect) {
     if (v !== null && v !== undefined) {
         effect(v);
     }
 }
 // create an object with the given property/value, when the value is present
-const mObj = (p, v) => v === null || v === undefined ? {} : { [p]: v };
-exports.mObj = mObj;
+export const mObj = (p, v) => v === null || v === undefined ? {} : { [p]: v };
 /* asHTMLAttributeValue is used as a way to make an HTML attribute value
  * exist in the DOM or not. React does not add in the DOM HTML attributes
  * with an "undefined" value
@@ -51,7 +38,7 @@ exports.mObj = mObj;
  * const disabledObj = {disabled: asHTMLAttributeValue(disabled)}
  * <button {...disabledObj} />
  */
-function asHTMLAttributeValue(value) {
+export function asHTMLAttributeValue(value) {
     if (value === null || value === undefined) {
         return undefined;
     }

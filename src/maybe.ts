@@ -14,7 +14,7 @@ export function fromMaybe<T>(defaultValue: () => T, t?: T | null): T {
   return t === null || t === undefined ? defaultValue() : t
 }
 
-export const catMaybes = <T extends any>(array: Array<T | undefined | null>): Array<T> =>
+export const catMaybes = <T>(array: Array<T | undefined | null>): Array<T> =>
   array.filter((x): x is T => x !== null && x !== undefined)
 
 export function mapMaybes<A, B>(
@@ -25,12 +25,12 @@ export function mapMaybes<A, B>(
 }
 
 // fmap for `null | undefined`
-export const mmap = <I extends any, O>(f: (v: I) => O, v?: I | null): O | undefined | null =>
+export const mmap = <I, O>(f: (v: I) => O, v?: I | null): O | undefined | null =>
   v === undefined ? undefined : v === null ? null : f(v)
 
 // bind for `null | undefined`
 // Note that `bind` and `map` have the same body in JavaScript
-export const mthen = <I extends any, O>(
+export const mthen = <I, O>(
   v: I | undefined | null,
   f: (v: I) => O | undefined | null
 ): O | undefined | null => (v === undefined ? undefined : v === null ? null : f(v))

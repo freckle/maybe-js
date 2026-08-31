@@ -13,10 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v7
         with:
-          cache: yarn
-      - run: yarn install
-      - run: yarn build
-      - run: yarn test
-      - run: yarn run check-git-clean
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm format-check
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm knip
+      - run: pnpm coverage
+      - run: pnpm build
+      - uses: freckle/check-git-clean-action@v1
+        with:
+          hint: "Run pnpm build to update your dist/"

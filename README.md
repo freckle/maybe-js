@@ -6,6 +6,15 @@ Provides a collection of helper functions for operations on maybe types.
 
 This package seeks to recreate idioms common in strongly typed functional programming languages, with heavy influence from the [Data.Maybe Haskell package][Data.Maybe].
 
+## Install
+
+```sh
+pnpm add @freckle/maybe
+```
+
+This package is ESM-only (`"type": "module"`). Prefer `import`. `require('@freckle/maybe')`
+works on Node 22.12+ via `require(esm)`, but not on older Node or under CJS-only bundlers.
+
 ## Usage
 
 Operations are used to refine an input from being possibly `null` or `undefined`:
@@ -101,6 +110,18 @@ const MyComponent = (props: Props): React.Node => {
   return <div {...attrObj} />
 }
 ```
+
+## Development
+
+- **Package manager**: pnpm (Node version pinned in `.nvmrc`)
+- `pnpm build` — `tsc`, emits to `dist/`
+- `pnpm test` — Vitest
+- `pnpm coverage` — Vitest with coverage, gated at 70% (lines/branches/functions/statements)
+- `pnpm typecheck` — `tsc --noEmit`, includes test files
+- `pnpm lint` — ESLint
+- `pnpm format` / `pnpm format-check` — Prettier
+- `pnpm knip` — unused files/dependencies/exports
+- CI runs all of the above on every PR, plus a check that `dist/` is up to date
 
 ## Release
 
