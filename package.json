@@ -2,7 +2,7 @@
   "name": "@freckle/maybe",
   "version": "2.2.1",
   "description": "Operations for maybe types",
-  "author": "Freckle",
+  "author": "Renaissance Learning Inc",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
