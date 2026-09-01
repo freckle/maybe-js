@@ -6,10 +6,6 @@ plugins:
   - - '@semantic-release/github'
     - successCommentCondition: false
 
-  # Update dist, in case Dependabot PRs merged without doing so
-  - - '@semantic-release/exec'
-    - prepareCmd: 'yarn install && yarn run build'
-
   - '@semantic-release/npm'
 
 branches:

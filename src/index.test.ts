@@ -1,6 +1,91 @@
-import {mapMaybes, mEffect, catMaybes, mmap, mthen, mObj} from '.'
+import {
+  asHTMLAttributeValue,
+  catMaybes,
+  fromJust,
+  fromMaybe,
+  mapMaybes,
+  maybe,
+  mEffect,
+  mmap,
+  mObj,
+  mthen
+} from './index.js'
 
 describe('@freckle/maybe', () => {
+  describe('maybe', () => {
+    test('applies the function given non-null, non-undefined', () => {
+      expect(
+        maybe(
+          () => 0,
+          (v: number) => v + 1,
+          41
+        )
+      ).toEqual(42)
+    })
+
+    test('returns the default given null', () => {
+      expect(
+        maybe(
+          () => 0,
+          (v: number) => v + 1,
+          null
+        )
+      ).toEqual(0)
+    })
+
+    test('returns the default given undefined', () => {
+      expect(
+        maybe(
+          () => 0,
+          (v: number) => v + 1,
+          undefined
+        )
+      ).toEqual(0)
+    })
+  })
+
+  describe('fromJust', () => {
+    test('returns the value given non-null, non-undefined', () => {
+      expect(fromJust(42, 'boom')).toEqual(42)
+    })
+
+    test('throws the given error on null', () => {
+      expect(() => fromJust(null, 'boom')).toThrow('boom')
+    })
+
+    test('throws the given error on undefined', () => {
+      expect(() => fromJust(undefined, 'boom')).toThrow('boom')
+    })
+  })
+
+  describe('fromMaybe', () => {
+    test('returns the value given non-null, non-undefined', () => {
+      expect(fromMaybe(() => 0, 42)).toEqual(42)
+    })
+
+    test('returns the default given null', () => {
+      expect(fromMaybe(() => 0, null)).toEqual(0)
+    })
+
+    test('returns the default given undefined', () => {
+      expect(fromMaybe(() => 0, undefined)).toEqual(0)
+    })
+  })
+
+  describe('asHTMLAttributeValue', () => {
+    test('returns the value given non-null, non-undefined', () => {
+      expect(asHTMLAttributeValue('a')).toEqual('a')
+    })
+
+    test('returns undefined given null', () => {
+      expect(asHTMLAttributeValue(null)).toEqual(undefined)
+    })
+
+    test('returns undefined given undefined', () => {
+      expect(asHTMLAttributeValue(undefined)).toEqual(undefined)
+    })
+  })
+
   describe('mapMaybes', () => {
     test('should return empty if the argument always return null', () => {
       const result = mapMaybes([1, 2, 3, 4], _x => null)
@@ -80,7 +165,7 @@ describe('@freckle/maybe', () => {
 
   describe('mEffect', () => {
     test('should call fn when value is not null/undefined', () => {
-      const fn = jest.fn()
+      const fn = vi.fn()
 
       const returned = mEffect('a', fn)
       mEffect(0, fn)
@@ -96,7 +181,7 @@ describe('@freckle/maybe', () => {
     })
 
     test('should NOT call fn when value is null/undefined', () => {
-      const fn = jest.fn()
+      const fn = vi.fn()
 
       const returned1 = mEffect(null, fn)
       const returned2 = mEffect(undefined, fn)
