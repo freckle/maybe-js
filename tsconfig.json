@@ -1,19 +1,6 @@
 {
+  "extends": "@freckle/tsconfig/library.json",
   "compilerOptions": {
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "strict": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noEmitOnError": true,
-    "declaration": true,
     "rootDir": "src",
     "outDir": "dist",
     "types": ["vitest/globals"]
