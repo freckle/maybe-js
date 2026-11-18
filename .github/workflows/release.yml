@@ -24,7 +24,7 @@ jobs:
         # trusted-publishing support only landed in v13, bundled starting with
         # semantic-release v25 (the action's own default is still v24).
         with:
-          semantic_version: '^25.0.9'
+          semantic_version: '^26.0.1'
           extra_plugins: |
             conventional-changelog-conventionalcommits@9
         env:
